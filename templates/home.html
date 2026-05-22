@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ScribbleChat</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+</head>
+
+<body>
+    <header class="header">
+        <div class="menu container">
+            <nav class="navbar">
+                <ul>
+                    <li><a href="{{ url_for('index') }}">Inicio</a></li>
+                    <li><a href="{{ url_for('ilustraciones') }}">Ilustraciones</a></li>
+                    <li><a href="{{ url_for('libros') }}">Libros</a></li>
+                    {% if session.get('loggedin') %}
+                    <li class="profile-dropdown">
+                        <a href="#" class="profile-toggle">
+                            {% if session.get('profile_image') %}
+                            <img src="{{ url_for('profile_image', filename=session['profile_image']) }}"
+                                alt="Profile Image" class="profile-image">
+                            {% else %}
+                            <img src="{{ url_for('static', filename='images/default-profile.png') }}"
+                                alt="Default Profile Image" class="profile-image">
+                            {% endif %}
+                            {{ session['name'] }}
+                        </a>
+                        <div class="profile-dropdown-content">
+                            <a href="{{ url_for('edit_profile') }}">Perfil</a>
+                            <a href="{{ url_for('confirm_logout') }}">Cerrar sesión</a>
+                        </div>
+                    </li>
+                    {% else %}
+                    <li><a href="{{ url_for('login') }}">Login</a></li>
+                    <li><a href="{{ url_for('register') }}">Register</a></li>
+                    {% endif %}
+                </ul>
+            </nav>
+        </div>
+        <div class="header-content container">
+            <h1>ScribbleChat</h1>
+            <p>
+                Bienvenido a nuestra plataforma integrada donde podrás escribir, leer, chatear, compartir contenido y
+                gestionar tu perfil de manera eficiente. Explora un espacio diseñado para facilitar todas tus
+                necesidades de comunicación y creación de contenido en un solo lugar
+            </p>
+        </div>
+    </header>
+    <main class="services">
+        <div class="services-content container">
+            <h2>Servicios</h2>
+            <div class="services-group">
+                <div class="services-1">
+                    <img src="{{ url_for('static', filename='images/book.png') }}" alt="Escritura">
+                    <h3>Escritura</h3>
+                </div>
+                <div class="services-1">
+                    <img src="{{ url_for('static', filename='images/escritura.png') }}" alt="Ilustraciones">
+                    <h3>Ilustraciones</h3>
+                </div>
+                <div class="services-1">
+                    <img src="{{ url_for('static', filename='images/chat.png') }}" alt="Chat">
+                    <h3>Chat</h3>
+                </div>
+            </div>
+            <p>
+                Ofrecemos una experiencia integral para autores y creativos. Nuestro servicio de Escritura te brinda las
+                herramientas y el soporte para transformar tus ideas en una obra literaria. Con nuestro servicio de
+                Ilustraciones, tus libros cobrarán vida con gráficos y ilustraciones a todo color. Además, nuestro
+                sistema de Chat para Comunicación y Colaboración permite interactuar en tiempo real con otros autores,
+                ilustradores y nuestro equipo de soporte, facilitando la colaboración y el feedback instantáneo.
+            </p>
+            <a href="#" class="btn-1" id="info-btn">información</a>
+            <div class="info-box" id="info-box">
+                <button class="close-btn" id="close-btn">&times;</button>
+                <div class="info-content">
+                    <h3>Descubre Nuestra Plataforma Integrada:</h3>
+                    <p>Tu Espacio para Escribir, Leer y Compartir ¡Bienvenido a nuestra plataforma integrada, diseñada
+                        con pasión y dedicación para tu experiencia digital única! Aquí en nuestra página web, hemos
+                        creado un espacio donde puedes explorar, interactuar y expresarte de múltiples formas:</p>
+
+                    <h3>¿Qué Ofrecemos?</h3>
+                    <p>Escribir y Crear Contenido: Toma tu pluma digital y da rienda suelta a tu creatividad. Ya sea que
+                        escribas artículos, compartas historias o expreses tus ideas, nuestra plataforma te ofrece las
+                        herramientas para hacerlo de manera fácil y efectiva.</p>
+                    <p>Leer y Descubrir: Sumérgete en un mundo de conocimiento y entretenimiento. Explora una amplia
+                        variedad de contenidos creados por otros usuarios, desde historias inspiradoras hasta artículos
+                        informativos.</p>
+                    <p>Caja de Comentarios Interactiva: Tu opinión importa. Con nuestra caja de comentarios integrada,
+                        puedes participar activamente en las conversaciones, dejar tus pensamientos y conectar con otros
+                        usuarios en tiempo real.</p>
+                    <p>Gestión de Perfil Personalizada: Mantén tu perfil actualizado y refleja quién eres, con
+                        personalización de tu información, nuestra plataforma te ofrece el control completo sobre tu
+                        experiencia.</p>
+
+                    <h3>¿Quiénes Somos?</h3>
+                    <p>Este proyecto es parte de nuestro seminario en la Universidad ECCI, donde hemos puesto todo
+                        nuestro empeño en desarrollar una plataforma que no solo cumpla con tus expectativas, sino que
+                        las supere. Nuestro equipo está formado por estudiantes apasionados por la tecnología y la
+                        innovación, comprometidos con ofrecerte una experiencia digital enriquecedora.</p>
+
+                    <h3>Nuestro Compromiso</h3>
+                    <p>En nuestra plataforma, la calidad y la interacción son fundamentales. Nos esforzamos por
+                        proporcionarte contenido relevante y herramientas intuitivas que mejoren tu experiencia. Además,
+                        valoramos tus comentarios y sugerencias, ya que nos ayudan a mejorar continuamente.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+    <section id="escritura">
+        <div class="container">
+            <div class="img-container"></div>
+            <div class="texto">
+                <h2>escritura</h2>
+                <p>Nuestra plataforma ofrece herramientas avanzadas para que los usuarios puedan escribir y editar
+                    contenido de manera eficiente. Con un editor de texto intuitivo y funcional, puedes dar rienda
+                    suelta a tu creatividad y producir escritos de alta calidad. Además, puedes guardar tus borradores,
+                    acceder a ellos desde cualquier dispositivo y publicarlos cuando estén listos.</p>
+                <a href="{{ url_for('write_book') }}" class="btn-2">escribir</a>
+            </div>
+        </div>
+    </section>
+    <section id="ilustraciones">
+        <div class="container">
+            <div class="img-container"></div>
+            <div class="texto">
+                <h2>Ilustraciones</h2>
+                <p>Nuestra plataforma no se limita solo a la escritura; también permite compartir ilustraciones y
+                    gráficos. Puedes subir tus propias ilustraciones, incorporarlas en tus escritos y compartirlas con
+                    la comunidad. Esta característica te ofrece una manera visual de expresar tus ideas y complementar
+                    tu contenido escrito, haciendo tu trabajo más atractivo y envolvente.</p>
+                <a href="{{ url_for('paint') }}" class="btn-1">ilustrar</a>
+            </div>
+        </div>
+    </section>
+    <section id="chat">
+        <div class="container">
+            <div class="img-container"></div>
+            <div class="texto">
+                <h2>Comentarios</h2>
+                <p>¡Bienvenido a nuestra caja de comentarios, donde tu voz cuenta! En nuestra página web, valoramos tu
+                    opinión y queremos que compartas tus pensamientos, ideas y preguntas directamente con nosotros y
+                    otros usuarios.</p>
+                <a href="{{ url_for('ilustraciones') }}" class="btn-2">chatear</a>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="container">
+            <p>&copy; ScribbleChat</p>
+        </div>
+    </footer>
+    <script>
+        // JavaScript para mostrar/ocultar la caja de información
+        document.getElementById('info-btn').addEventListener('click', function (e) {
+            e.preventDefault(); // Evita el comportamiento predeterminado del enlace
+            var infoBox = document.getElementById('info-box');
+            infoBox.style.display = (infoBox.style.display === 'block' ? 'none' : 'block');
+        });
+
+        // JavaScript para cerrar la caja de información con el botón de cerrar (x)
+        document.getElementById('close-btn').addEventListener('click', function (e) {
+            e.preventDefault(); // Evita el comportamiento predeterminado del enlace
+            var infoBox = document.getElementById('info-box');
+            infoBox.style.display = 'none';
+        });
+    </script>
+</body>
+
+</html>

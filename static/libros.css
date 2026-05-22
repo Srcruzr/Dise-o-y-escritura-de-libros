@@ -1,0 +1,221 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-image: linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.7), /* Hacer la capa oscura un poco más opaca */
+        rgba(0, 0, 0, 0.7)
+    ), url("/static/images/fondolibros.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.header {
+    color: white;
+    padding: 5px 0;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.menu.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+    flex-grow: 1;
+}
+
+.navbar ul li {
+    display: inline;
+}
+
+.navbar ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    display: inline-block;
+    font-weight: bold; /* Texto en negrilla */
+}
+
+.navbar ul li a:hover {
+    background-color: #575757;
+    border-radius: 5px;
+}
+
+.profile-dropdown {
+    position: relative;
+}
+
+.profile-dropdown .profile-toggle {
+    font-size: 18px;
+    color: white;
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-weight: bold; /* Texto en negrilla */
+}
+
+.profile-dropdown .profile-toggle:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.profile-dropdown .profile-toggle .profile-image {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.profile-dropdown .profile-dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.7);
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    right: 0;
+    top: 40px;
+    border-radius: 5px;
+}
+
+.profile-dropdown .profile-dropdown-content a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.profile-dropdown .profile-dropdown-content a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.profile-dropdown:hover .profile-dropdown-content {
+    display: block;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    flex: 1;
+}
+
+/* Estilos específicos para ilustraciones */
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+.imagen {
+    flex: 1 1 200px;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.imagen img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+h2 {
+    color: white; /* Texto en blanco */
+    font-weight: bold; /* Texto en negrilla */
+    text-align: center;
+}
+
+/* Estilos para el footer */
+footer {
+    color: white;
+    text-align: center;
+    padding: 1px 0; /* Ajustar el padding para hacer el footer menos largo */
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    font-weight: bold; /* Texto en negrilla */
+    background: rgba(0, 0, 0, 0.7);
+}
+
+footer .container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.books-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 1rem;
+    justify-content: center;
+}
+
+.book-item {
+    background: rgba(255, 255, 255, 0.8); /* Fondo transparente */
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    max-width: 300px;
+    margin: 0.5rem;
+}
+
+.book-image img {
+    width: 100px; /* Tamaño reducido */
+    height: 150px; /* Tamaño reducido */
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.book-info {
+    padding: 1rem;
+    flex: 1;
+}
+
+.book-info h3 {
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+.book-info p {
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.btn-2 {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: black;
+    color: white;
+    border-radius: 4px;
+    text-decoration: none;
+}
+
+.btn-2:hover {
+    background: #0056b3;
+}

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cerrar Sesión</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='confirmlog.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>¿Estás seguro de que quieres cerrar sesión?</h1>
+        <form action="{{ url_for('logout') }}" method="post">
+            <button type="submit" class="btn btn-primary">Sí, cerrar sesión</button>
+            <a href="{{ url_for('index') }}" class="btn btn-secondary">Cancelar</a>
+        </form>
+    </div>
+</body>
+</html>

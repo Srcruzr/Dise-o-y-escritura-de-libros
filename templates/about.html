@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ScribbleChat</title>
+    <script src="{{ url_for('static', filename='tinymce/tinymce.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='main.js') }}"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='escritura.css') }}">
+</head>
+<body>
+    <div class="contenedor">
+        <div class="hero">
+            <h1>"ScribbleChat"</h1>
+            <p>Escribe tu historia</p>
+        </div>
+        <form id="formulario" class="formulario" action="{{ url_for('about') }}" method="POST">
+            <label for="libro_id">Selecciona el Libro:</label>
+            <select id="libro_id" name="libro_id" required>
+                <option value="">Selecciona un libro</option>
+                {% for libro in libros %}
+                <option value="{{ libro[0] }}">{{ libro[1] }}</option>
+                {% endfor %}
+            </select>
+            <textarea id="editor" name="texto">Escribe aquí...</textarea>
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+</body>
+</html>

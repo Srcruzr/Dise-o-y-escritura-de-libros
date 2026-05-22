@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ScribbleChat - Libros</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='libros.css') }}">
+</head>
+<body>
+    <header class="header">
+        <div class="menu container">
+            <nav class="navbar">
+                <ul>
+                    <li><a href="{{ url_for('index') }}">Inicio</a></li>
+                    <li><a href="{{ url_for('ilustraciones') }}">Ilustraciones</a></li>
+                    <li><a href="{{ url_for('libros') }}">Libros</a></li>
+                    {% if session.get('loggedin') %}
+                    <li class="profile-dropdown">
+                        <a href="#" class="profile-toggle">
+                            {% if session.get('profile_image') %}
+                            <img src="{{ url_for('profile_image', filename=session['profile_image']) }}"
+                                alt="Profile Image" class="profile-image">
+                            {% else %}
+                            <img src="{{ url_for('static', filename='images/default-profile.png') }}"
+                                alt="Default Profile Image" class="profile-image">
+                            {% endif %}
+                            {{ session['name'] }}
+                        </a>
+                        <div class="profile-dropdown-content">
+                            <a href="{{ url_for('edit_profile') }}">Perfil</a>
+                            <a href="{{ url_for('confirm_logout') }}">Cerrar sesión</a>
+                        </div>
+                    </li>
+                    {% else %}
+                    <li><a href="{{ url_for('login') }}">Login</a></li>
+                    <li><a href="{{ url_for('register') }}">Register</a></li>
+                    {% endif %}
+                </ul>
+            </nav>
+        </div>
+        <div class="header-content container">
+            <h1>Libros</h1>
+            <p>Explora los libros disponibles. Haz clic en una portada para leer más.</p>
+        </div>
+    </header>
+    <main class="books-container">
+        {% for libro in libros %}
+        <div class="book-item">
+            <div class="book-image">
+                <a href="{{ url_for('libro', libro_id=libro.id) }}">
+                    <img src="data:image/png;base64,{{ libro.imagen }}" alt="{{ libro.titulo }}">
+                </a>
+            </div>
+            <div class="book-info">
+                <h3>{{ libro.titulo }}</h3>
+                <p>{{ libro.descripcion }}</p>
+                <a href="{{ url_for('libro', libro_id=libro.id) }}" class="btn-2">Leer más</a>
+            </div>
+        </div>
+        {% endfor %}
+    </main>
+    <footer>
+        <div class="container">
+            <p>&copy; ScribbleChat</p>
+        </div>
+    </footer>
+</body>
+</html>

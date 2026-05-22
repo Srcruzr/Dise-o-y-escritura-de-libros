@@ -1,0 +1,361 @@
+/* Estilos generales */
+
+/* Reset de estilos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Estilos de la barra de navegación */
+
+.header {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/static/images/Designer.jpg');
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.menu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+}
+
+.menu .navbar ul {
+    display: flex;
+    list-style: none;
+}
+
+.menu .navbar ul li {
+    position: relative;
+    float: left;
+    margin-left: 20px;
+}
+
+.menu .navbar ul li a {
+    font-size: 20px;
+    padding: 10px;
+    color: white;
+    display: flex;
+    font-weight: 600;
+}
+
+.menu .navbar ul li a:hover {
+    color: #d1f8ffbb;
+}
+
+.header-content {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.header-content h1 {
+    font-size: 75px;
+    line-height: 80px;
+    color: white;
+    text-transform: uppercase;
+    margin-bottom: 35px;
+}
+
+.header-content p {
+    font-size: 16px;
+    color: #c5c5c5;
+    padding: 0 250px;
+    margin-bottom: 25px;
+}
+
+.btn-1 {
+    display: inline-block;
+    padding: 11px 35px;
+    background-color: #272727;
+    color: white;
+    text-transform: uppercase;
+    border-radius: 5px;
+    margin: 30px;
+    margin-bottom: 50px;
+    transition: 0.2s ease all;
+}
+
+.btn-1:hover {
+    background-color: black;
+}
+
+.btn-2 {
+    display: inline-block;
+    padding: 11px 35px;
+    background-color: rgb(219, 219, 219);
+    color: black;
+    text-transform: uppercase;
+    border-radius: 5px;
+    margin: 30px;
+    margin-bottom: 100px;
+    transition: 0.2s ease all;
+}
+
+.btn-2:hover {
+    background-color: white;
+}
+
+.services-content {
+    text-align: center;
+}
+
+.services-content h2 {
+    font-size: 55px;
+    line-height: 70px;
+    color: black;
+    text-transform: uppercase;
+    margin-bottom: 50px;
+    margin: 100px;
+}
+
+.services-content p {
+    font-size: 16px;
+    margin-bottom: 50px;
+    padding: 0 100px;
+}
+
+.services-group {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 50px;
+}
+
+.services-1 {
+    padding: 0 60px;
+}
+
+.services-1 img {
+    width: 45px;
+    margin-bottom: 10px;
+}
+
+.services-1 h3 {
+    color: #272727;
+    font-size: 18px;
+}
+
+.info-box {
+    display: none; /* Por defecto, la caja de información está oculta */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%; /* Ancho máximo del 80% del viewport */
+    max-width: 800px; /* Máximo ancho permitido */
+    max-height: 80%; /* Altura máxima del 80% del viewport */
+    overflow-y: auto; /* Habilitar desplazamiento vertical si el contenido es demasiado grande */
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.8);
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    animation: fadeInUp 0.3s ease forwards; /* Animación de entrada */
+    font-size: 16px; /* Tamaño de fuente base */
+    line-height: 1.6; /* Altura de línea para mejor legibilidad */
+    color: white;
+}
+
+/* Estilos para el botón de información */
+#info-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: black;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+#info-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Animación de entrada */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, 100%);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}
+
+#escritura .container {
+    text-align: center;
+    padding: 60px 12px;
+    display: flex;
+    justify-content: center;
+    background: -webkit-linear-gradient(to right, #bdc3c7, #2c3e50);
+    background: linear-gradient(to right, #bdc3c7, #2c3e50);
+    border-radius: 40px;
+}
+
+#escritura .texto {
+    width: 50%;
+    max-width: 500px;
+    text-align: initial;
+    padding: 0px 30px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    color: white;
+}
+
+#escritura .img-container {
+    background-image: url("/static/images/libro.png");
+    background-size: cover;
+    background-position: center center;
+    height: 400px;
+    width: 500px;
+}
+
+#ilustraciones .container {
+    text-align: center;
+    padding: 70px 12px;
+    display: flex;
+    justify-content: center;
+    border-radius: 40px;
+}
+
+#ilustraciones .texto {
+    width: 50%;
+    max-width: 500px;
+    text-align: initial;
+    padding: 0px 30px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    color: black;
+}
+
+#ilustraciones .img-container {
+    background-image: url("/static/images/ilustracion.png");
+    background-size: cover;
+    background-position: center center;
+    height: 500px;
+    width: 400px;
+}
+
+#chat .container {
+    text-align: center;
+    padding: 60px 12px;
+    display: flex;
+    justify-content: center;
+    background: -webkit-linear-gradient(to right, #bdc3c7, #2c3e50);
+    background: linear-gradient(to right, #bdc3c7, #2c3e50);
+    border-radius: 40px;
+}
+
+#chat .texto {
+    width: 50%;
+    max-width: 500px;
+    text-align: initial;
+    padding: 0px 30px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    color: white;
+}
+
+#chat .img-container {
+    background-image: url("/static/images/stream.png");
+    background-size: cover;
+    background-position: center center;
+    height: 400px;
+    width: 500px;
+}
+
+footer {
+    text-align: center;
+    color: white;
+    padding: 1px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.8);
+}
+
+/* Estilos del perfil desplegable */
+
+.profile-dropdown {
+    position: relative;
+}
+
+.profile-dropdown .profile-toggle {
+    font-size: 18px;
+    color: white;
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    padding: 10px 15px;
+    border-radius: 5px;
+}
+
+.profile-dropdown .profile-toggle:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.profile-dropdown .profile-toggle .profile-image {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.profile-dropdown .profile-dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.7);
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    right: 0;
+    top: 40px;
+    border-radius: 5px;
+}
+
+.profile-dropdown .profile-dropdown-content a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.profile-dropdown .profile-dropdown-content a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.profile-dropdown:hover .profile-dropdown-content {
+    display: block;
+}

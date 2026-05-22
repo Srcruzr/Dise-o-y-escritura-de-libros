@@ -1,0 +1,50 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-image: url('/static/images/loginfond.png'); /* Ruta de tu imagen de fondo */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: rgba(0, 0, 0, 0.5); /* Opacidad del fondo */
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    background-color: rgba(255, 255, 255, 0.8); /* Opacidad del cuadro */
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.7); /* Sombra suave */
+    max-width: 80%;
+}
+
+.container h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.container form {
+    margin-top: 20px;
+}
+
+.container .btn {
+    padding: 10px 20px;
+    margin: 0 10px;
+    text-decoration: none;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.container .btn-primary {
+    background-color: black; /* Color del botón primario */
+}
+
+.container .btn-secondary {
+    background-color: #6c757d; /* Color del botón secundario */
+}

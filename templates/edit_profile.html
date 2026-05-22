@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Perfil</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='edit_profile.css') }}">
+</head>
+
+<body>
+    <header class="header">
+        <div class="menu container">
+            <nav class="navbar">
+                <ul>
+                    <li><a href="{{ url_for('index') }}">Inicio</a></li>
+                    <li><a href="{{ url_for('ilustraciones') }}">Ilustraciones</a></li>
+                    <li><a href="{{ url_for('libros') }}">Libros</a></li>
+                    {% if session.get('loggedin') %}
+                    {% else %}
+                    <li><a href="{{ url_for('login') }}">Login</a></li>
+                    <li><a href="{{ url_for('register') }}">Register</a></li>
+                    {% endif %}
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div class="contenedor">
+        <h2>Editar Perfil</h2>
+        <form method="POST" enctype="multipart/form-data">
+            <label for="name">Nombre:</label>
+            <input type="text" id="name" name="name" placeholder="{{ session['name'] }}" />
+            <label for="password">Nueva Contraseña:</label>
+            <input type="password" id="password" name="password" placeholder="Nueva contraseña" />
+            <label for="image">Imagen de Perfil:</label>
+            <input type="file" id="image" name="image" />
+            <button type="submit" class="btn-1">Actualizar Perfil</button>
+        </form>
+    </div>
+</body>
+
+</html>

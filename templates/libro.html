@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ libro.titulo }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='libro.css') }}">
+</head>
+<body>
+    <header class="header">
+        <div class="menu container">
+            <nav class="navbar">
+                <ul>
+                    <li><a href="{{ url_for('index') }}">Inicio</a></li>
+                    <li><a href="{{ url_for('ilustraciones') }}">Ilustraciones</a></li>
+                    <li><a href="{{ url_for('libros') }}">Libros</a></li>
+                    {% if session.get('loggedin') %}
+                    <li class="profile-dropdown">
+                        <a href="#" class="profile-toggle">
+                            {% if session.get('profile_image') %}
+                            <img src="{{ url_for('profile_image', filename=session['profile_image']) }}"
+                                alt="Profile Image" class="profile-image">
+                            {% else %}
+                            <img src="{{ url_for('static', filename='images/default-profile.png') }}"
+                                alt="Default Profile Image" class="profile-image">
+                            {% endif %}
+                            {{ session['name'] }}
+                        </a>
+                        <div class="profile-dropdown-content">
+                            <a href="{{ url_for('edit_profile') }}">Perfil</a>
+                            <a href="{{ url_for('confirm_logout') }}">Cerrar sesión</a>
+                        </div>
+                    </li>
+                    {% else %}
+                    <li><a href="{{ url_for('login') }}">Login</a></li>
+                    <li><a href="{{ url_for('register') }}">Register</a></li>
+                    {% endif %}
+                </ul>
+            </nav>
+        </div>
+        <div class="header-content container">
+            <h1>{{ libro.titulo }}</h1>
+            <p>{{ libro.descripcion }}</p>
+        </div>
+    </header>
+    <main>
+        <section class="book-content">
+            <div class="book-text">
+                <!-- Limpieza del texto para eliminar etiquetas HTML -->
+                <p>{{ libro.texto|strip_html }}</p>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="container">
+            <p>&copy; ScribbleChat</p>
+        </div>
+    </footer>
+</body>
+</html>

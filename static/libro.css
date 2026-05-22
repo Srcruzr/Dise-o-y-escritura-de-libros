@@ -1,0 +1,193 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-image: linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.7), /* Hacer la capa oscura un poco más opaca */
+        rgba(0, 0, 0, 0.7)
+    ), url("/static/images/fondilus.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.header {
+    color: white;
+    padding: 10px 0; /* Espacio para la navbar y el título */
+    position: fixed; /* Hacer la navbar fija */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* Asegurarse de que la navbar esté encima del contenido */
+    background: rgba(0, 0, 0, 0.8); /* Fondo oscuro para la navbar */
+}
+
+/* Contenido de la navbar */
+.menu.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+/* Estilo de la barra de navegación */
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+    flex-grow: 1;
+}
+
+.navbar ul li {
+    display: inline;
+}
+
+.navbar ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    display: inline-block;
+    font-weight: bold; /* Texto en negrilla */
+}
+
+.navbar ul li a:hover {
+    background-color: #575757;
+    border-radius: 5px;
+}
+
+.profile-dropdown {
+    position: relative;
+    z-index: 2000; /* Asegurarse de que el menú desplegable esté encima de otros elementos */
+}
+
+.profile-dropdown .profile-toggle {
+    font-size: 18px;
+    color: white;
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-weight: bold; /* Texto en negrilla */
+}
+
+.profile-dropdown .profile-toggle:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.profile-dropdown .profile-toggle .profile-image {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.profile-dropdown .profile-dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.7);
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 2000; /* Asegurarse de que el menú desplegable esté encima del contenido */
+    right: 0;
+    top: 40px;
+    border-radius: 5px;
+}
+
+.profile-dropdown .profile-dropdown-content a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.profile-dropdown .profile-dropdown-content a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.profile-dropdown:hover .profile-dropdown-content {
+    display: block;
+}
+
+.header-content {
+    padding: 10px 0;
+    text-align: center; /* Centra el texto */
+    background: rgba(0, 0, 0, 0.7); /* Fondo oscuro para el contenido */
+    position: relative;
+    z-index: 1000;
+}
+
+/* Estilo del título */
+.header-content h1 {
+    margin: 0;
+    font-size: 2rem;
+    color: white;
+    font-weight: bold; /* Texto en negrilla */
+}
+
+/* Estilo de la descripción */
+.header-content p {
+    margin: 10px 0 0;
+    font-size: 1rem;
+    color: #ccc; /* Color del texto de descripción */
+}
+
+/* Asegurarse de que el contenido no quede oculto debajo de la navbar */
+main {
+    padding: 180px 20px 20px; /* Ajustar padding para crear espacio debajo de la navbar fija */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Estilos para el contenido del libro */
+.book-content {
+    padding: 2rem;
+    background-color: #fff; /* Fondo blanco para el contenido del libro */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra sutil */
+    width: 100%;
+    max-width: 800px; /* Ancho máximo del cuadro */
+    margin: 0 auto; /* Centra el cuadro en la página */
+    overflow-y: auto; /* Añadir scroll vertical si el contenido es más alto */
+}
+
+/* Estilo para el texto dentro del libro */
+.book-text p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #333;
+}
+
+/* Evitar estilos no deseados en el contenido del libro */
+.book-text p em,
+.book-text p strong,
+.book-text p a {
+    all: unset;
+    color: inherit;
+}
+
+/* Estilos para el footer */
+footer {
+    color: white;
+    text-align: center;
+    padding: 10px 0; /* Ajustar el padding para hacer el footer menos largo */
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    font-weight: bold; /* Texto en negrilla */
+    background: rgba(0, 0, 0, 0.7);
+}
+
+footer .container {
+    max-width: 1200px;
+    margin: 0 auto;
+}

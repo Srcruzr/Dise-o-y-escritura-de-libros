@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ScribbleChat</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='write_book.css') }}">
+</head>
+<body>
+    <header class="header">
+        <div class="menu container">
+            <nav class="navbar">
+                <ul>
+                    <li><a href="{{ url_for('index') }}">Inicio</a></li>
+                    <li><a href="{{ url_for('ilustraciones') }}">Ilustraciones</a></li>
+                    <li><a href="{{ url_for('libros') }}">Libros</a></li>
+                    {% if session.get('loggedin') %}
+                    {% else %}
+                    <li><a href="{{ url_for('login') }}">Login</a></li>
+                    <li><a href="{{ url_for('register') }}">Register</a></li>
+                    {% endif %}
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div class="contenedor">
+        <h2>Escribir un Nuevo Libro</h2>
+        <form method="POST">
+            <label for="title">Título del Libro:</label>
+            <input type="text" id="title" name="title" required />
+            <label for="description">Descripción Breve:</label>
+            <textarea id="description" name="description" rows="4" required></textarea>
+            <button type="submit" class="btn-1">Guardar</button>
+        </form>
+    </div>
+    <footer>
+        <div class="container">
+            <p>&copy; ScribbleChat</p>
+        </div>
+    </footer>
+</body>
+</html>

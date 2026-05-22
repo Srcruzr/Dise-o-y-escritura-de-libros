@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<!-- Coding By CodingNepal - youtube.com/codingnepal -->
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <title>ScribbleChat - paint</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='paint.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="{{ url_for('static', filename='paint.js') }}" defer></script>
+</head>
+<body>
+<div class="container">
+    <section class="tools-board">
+        <div class="row">
+            <label class="title">Formas</label>
+            <ul class="options">
+                <li class="option tool" id="rectangle">
+                    <img src="{{ url_for('static', filename='icons/rectangle.svg') }}" alt="">
+                    <span>Rectangulo</span>
+                </li>
+                <li class="option tool" id="circle">
+                    <img src="{{ url_for('static', filename='icons/circle.svg') }}" alt="">
+                    <span>Circulo</span>
+                </li>
+                <li class="option tool" id="triangle">
+                    <img src="{{ url_for('static', filename='icons/triangle.svg') }}" alt="">
+                    <span>Triangulo</span>
+                </li>
+                <li class="option">
+                    <input type="checkbox" id="fill-color">
+                    <label for="fill-color">Color de relleno</label>
+                </li>
+            </ul>
+        </div>
+        <div class="row">
+            <label class="title">Opciones</label>
+            <ul class="options">
+                <li class="option active tool" id="brush">
+                    <img src="{{ url_for('static', filename='icons/brush.svg') }}" alt="">
+                    <span>Pincel</span>
+                </li>
+                <li class="option tool" id="eraser">
+                    <img src="{{ url_for('static', filename='icons/eraser.svg') }}" alt="">
+                    <span>Borrador</span>
+                </li>
+                <li class="option">
+                    <input type="range" id="size-slider" min="1" max="30" value="5">
+                </li>
+            </ul>
+        </div>
+        <div class="row colors">
+            <label class="title">Colores</label>
+            <ul class="options">
+                <li class="option"></li>
+                <li class="option selected"></li>
+                <li class="option"></li>
+                <li class="option"></li>
+                <li class="option">
+                    <input type="color" id="color-picker" value="#4A98F7">
+                </li>
+            </ul>
+        </div>
+        <div class="row buttons">
+            <button class="clear-canvas">Borrar</button>
+            <button class="save-img">Guardar Imagen</button>
+            <input type="file" id="upload-image" accept="image/*">
+            <label for="upload-image" class="upload-label">Subir Imagen</label>
+            <button id="drag-image" class="drag-image">Mover Imagen</button>
+        </div>
+        <div class="row">
+            <input type="range" id="image-size-slider" min="10" max="100" value="100">
+            <label for="image-size-slider">Tamaño de Imagen (%)</label>
+        </div>
+    </section>
+    <section class="drawing-board">
+        <canvas></canvas>
+    </section>
+</div>
+</body>
+</html>
